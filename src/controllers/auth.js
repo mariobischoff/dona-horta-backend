@@ -1,11 +1,10 @@
-import model from '../models/user'
-import schema from '../schemas/user'
+import Model from '../models/user'
 import bcrypt from 'bcrypt'
 
 
-class Auth extends model {
+module.exports = class Auth extends Model {
 
-  constructor() {
+  constructor(schema) {
     super(schema)
   }
 
@@ -42,5 +41,3 @@ class Auth extends model {
   
 
 }
-
-export default new Auth()

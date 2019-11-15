@@ -1,9 +1,7 @@
 import Crud from '../helpers/crud'
 
-class userModel extends Crud {
+module.exports = class userModel extends Crud {
   constructor (schema) {
     super(schema)
   }
-
-  
 }
