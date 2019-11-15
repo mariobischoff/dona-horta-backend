@@ -10,7 +10,7 @@ require('dotenv').config()
 console.log('to com sono')
 
 const app = express()
-mongoose.connect("mongodb+srv://mariobischoff:vpoIZYl6e8bjYyqU@cluster0-0tgdw.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+mongoose.connect(process.env.URI_DB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
   .then(res => {
     console.log('conected')
   }).catch(error => {

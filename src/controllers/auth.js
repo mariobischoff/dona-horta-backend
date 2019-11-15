@@ -2,6 +2,8 @@ import bcrypt from 'bcrypt'
 import userSchema from '../schemas/user'
 
 module.exports = class Auth {
+
+
   async login (req, res) {
     const { email, password } = req.body
     try {
@@ -19,6 +21,7 @@ module.exports = class Auth {
   }
 
   register (req, res) {
+    console.log('jio')
     userSchema.create(req.body).then(user => {
       res.send(user)
     }).catch(error => {

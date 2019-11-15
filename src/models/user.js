@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 import Connection from '../config/dbConnection'
 
 class UserModel extends Connection {
@@ -21,4 +19,3 @@ class UserModel extends Connection {
 }
 
 export default UserModel
->>>>>>> finish
