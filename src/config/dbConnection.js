@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+
 module.exports = class Connection {
   constructor () {
     this.conection = process.env.URI_DB

@@ -1,7 +1,8 @@
 import Connection from '../config/dbConnection'
 
-class Crud extends Connection {
+module.exports = class Crud extends Connection {
   constructor(schema) {
+    super()
     this.schema = schema
   }
   
@@ -59,7 +60,5 @@ class Crud extends Connection {
       await this.close()
     }
   }
-
+  
 }
-
-export default Crud
