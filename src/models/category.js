@@ -1,15 +1,16 @@
 import Connection from '../config/dbConnection'
-import schema from '../schemas/user'
+import User from '../schemas/user'
+
 class UserModel extends Connection {
   constructor () {
     super()
-    this.schema = schema
+    this.user = User
   }
 
-  async Save (data) {
+  async save (data) {
     await this.start()
     try {
-      return await this.schema.create(data)
+      return await this.user.create(data)
     } catch (error) {
       return error
     } finally {
@@ -18,4 +19,4 @@ class UserModel extends Connection {
   }
 }
 
-export default new UserModel()
+export default UserModel
