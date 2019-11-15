@@ -1,12 +1,9 @@
-import model from '../models/user'
-import schema from '../schemas/user'
 import bcrypt from 'bcrypt'
 
+module.exports = class Auth {
 
-class Auth extends model {
-
-  constructor() {
-    super(schema)
+  constructor(user) {
+    this.user = user
   }
 
   async login (req, res) {
@@ -31,16 +28,12 @@ class Auth extends model {
       delete req.body.password
       let salt = await bcrypt.genSalt(10)
       req.body.password = await bcrypt.hash(plainPass, salt)
-      let user = this.save(req.body)
-      let result = await user.save()
+      let result = this.user.save(req.body)
       return res.status(201).json(result)
     } catch (error) {
       console.error(error)
       return res.status(500).json({ error: error.errmsg })
     }
   }
-  
 
 }
-
-export default new Auth()

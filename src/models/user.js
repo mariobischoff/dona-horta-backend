@@ -1,9 +1,20 @@
-import Crud from '../helpers/crud'
+import Connection from '../config/dbConnection'
 
-class userModel extends Crud {
+module.exports = class UserModel extends Connection {
   constructor (schema) {
-    super(schema)
+    super()
+    this.schema = schema
   }
 
-  
+  async save (data) {
+    await this.start()
+    try {
+      return await this.schema.create(data)
+    } catch (error) {
+      return error
+    } finally {
+      await this.close()
+    }
+  }
+
 }

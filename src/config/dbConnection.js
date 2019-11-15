@@ -1,13 +1,10 @@
 import mongoose from 'mongoose'
 
 module.exports = class Connection {
-  constructor () {
-    this.conection = process.env.URI_DB
-  }
 
   async start () {
     try {
-      await mongoose.connect(this.conection, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+      await mongoose.connect(process.env.URI_DB, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
       console.log('DATABASE CONNECTED')
     } catch (e) {
       console.log('DATABASE NOT CONNECTED')

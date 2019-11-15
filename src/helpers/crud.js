@@ -1,7 +1,7 @@
 import Connection from '../config/dbConnection'
 
 module.exports = class Crud extends Connection {
-  constructor(schema) {
+  constructor (schema) {
     super()
     this.schema = schema
   }
