@@ -3,7 +3,6 @@ import bcrypt from 'bcrypt'
 
 
 module.exports = class Auth extends Model {
-
   constructor(schema) {
     super(schema)
   }

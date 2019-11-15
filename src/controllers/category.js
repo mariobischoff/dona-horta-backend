@@ -2,7 +2,6 @@ import Model from '../models/category'
 import schema from '../schemas/category'
 
 module.exports = class Category extends Model {
-  // eslint-disable-next-line no-useless-constructor
   constructor () {
     super(schema)
   }

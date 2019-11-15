@@ -27,14 +27,15 @@ const productSchema = schema({
   },
   price: {
     type: Number,
-    default: true,
     required: true
   },
   description: {
-    type: String
+    type: String,
+    default: null
   },
   origin:{
-    type: String
+    type: String,
+    default: null
   },
   createdAt: {
     type: Date,
@@ -42,7 +43,7 @@ const productSchema = schema({
   },
   picture: String,
   withdraw: Boolean,
-  deliver: Boolean
+  delivery: Boolean
 })
 
 export default mongoose.model('product', productSchema)
