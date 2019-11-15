@@ -1,27 +1,11 @@
 import mongoose from 'mongoose'
 const schema = mongoose.Schema
 
-const userSchema = schema({
-  email: {
-    type: String,
-    required: true
-  },
+const categorySchema = schema({
   name: {
     type: String,
-    required: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  address: {
-    type: String,
-    required: true
-  },
-  producer: {
-    type: Boolean,
-    default: false
+    required: true,
   }
 })
 
-export default mongoose.model('user', userSchema)
+export default mongoose.model('category', categorySchema)
