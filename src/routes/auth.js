@@ -1,9 +1,9 @@
 import express from 'express'
 import Auth from '../controllers/auth'
-const router = express.Router()
 import user from '../schemas/user'
+const router = express.Router()
 
-let authController = new Auth(user)
+const authController = new Auth()
 
 router.get('/', authController.login)
 router.post('/', authController.register)

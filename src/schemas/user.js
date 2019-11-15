@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
-const schema = mongoose.Schema
+const Schema = mongoose.Schema
 
-const userSchema = schema({
+const userSchema = Schema({
   email: {
     type: String,
     required: true

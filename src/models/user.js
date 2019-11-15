@@ -1,6 +1,6 @@
 import Connection from '../config/dbConnection'
 
-module.exports = class UserModel extends Connection {
+class UserModel extends Connection {
   constructor (schema) {
     super()
     this.schema = schema
@@ -16,5 +16,6 @@ module.exports = class UserModel extends Connection {
       await this.close()
     }
   }
-
 }
+
+export default UserModel

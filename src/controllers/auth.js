@@ -1,11 +1,7 @@
 import bcrypt from 'bcrypt'
+import userSchema from '../schemas/user'
 
 module.exports = class Auth {
-
-  constructor(user) {
-    this.user = user
-  }
-
   async login (req, res) {
     const { email, password } = req.body
     try {
@@ -22,18 +18,12 @@ module.exports = class Auth {
     }
   }
 
-  async register (req, res) {
-    try {
-      let plainPass = req.body.password
-      delete req.body.password
-      let salt = await bcrypt.genSalt(10)
-      req.body.password = await bcrypt.hash(plainPass, salt)
-      let result = this.user.save(req.body)
-      return res.status(201).json(result)
-    } catch (error) {
-      console.error(error)
-      return res.status(500).json({ error: error.errmsg })
-    }
+  register (req, res) {
+    userSchema.create(req.body).then(user => {
+      res.send(user)
+    }).catch(error => {
+      res.send(error)
+    })
   }
 
 }
